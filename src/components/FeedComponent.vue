@@ -1,34 +1,18 @@
 <template>
-    <v-row no-gutters>
-        <v-col cols="12">
-          <v-container>
-            <v-row align="center">
-              <v-col cols>
-                <div class="font-inter-black white--text">
-                  {{title}}
-                </div>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-col>
-
-        <v-col cols="12">
-            <v-slide-group dark>
-                <v-slide-item v-for="n in 15" :key="n">
-                    <div class="ma-2" style="width: 200px; height: 200px;">
-                        <v-img src="" width="100%" height="150px">
-                        </v-img>
-                        <div class="ma-3 text-center white--text">
-                            Some title here 
-                        </div>
-                    </div>
-                </v-slide-item>
-            </v-slide-group>
-        </v-col>
-      </v-row>
+  <v-slide-group dark>
+      <v-slide-item v-for="(torrent, key) in torrents" :key="key">
+          <v-card flat tile width="250px">
+              <v-img class="white" width="250px" height="250px"/>
+              <p v-line-clamp:10="2" class=" ma-3 white--text text--body text-center text-wrap">
+                  {{torrent.attributes.name}}
+              </p>
+          </v-card>
+      </v-slide-item>
+  </v-slide-group>
 </template>
 
 <script lang="ts">
+import Torrent from "@/models/Torrent";
 import { Component, Prop, Vue } from "vue-property-decorator";
 
 @Component({
@@ -38,8 +22,7 @@ import { Component, Prop, Vue } from "vue-property-decorator";
 export default class FeedComponent extends Vue {
 
     @Prop() readonly title!: string
-
-    model = null
+    @Prop() readonly torrents!: Torrent[]
 
 }
 </script>

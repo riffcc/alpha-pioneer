@@ -2,15 +2,13 @@
   <v-app>
 
     <v-main class="grey darken-4">
-      <v-layout fill-height>
 
-        <v-flex md1 class="grey-margin-right">
+        <!--v-flex md1 class="grey-margin-right">
           <LeftSidebarComponent class="grey darken-4"/>
-        </v-flex>
+        </v-flex-->
 
         <router-view/>
 
-      </v-layout>
     </v-main>
   </v-app>
 </template>
@@ -42,11 +40,9 @@ export default class App extends Vue {
 }
 
 .full-width {
-  width: 100%;
 }
 
 .full-height {
-  height: 100%;
 }
 
 .grey-margin-right{
