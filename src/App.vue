@@ -1,32 +1,47 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+
+    <v-main class="grey darken-4">
+      <v-layout fill-height>
+
+        <v-flex md1 class="grey-margin-right">
+          <LeftSidebarComponent class="grey darken-4"/>
+        </v-flex>
+
+        <router-view/>
+
+      </v-layout>
+    </v-main>
+  </v-app>
 </template>
 
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import LeftSidebarComponent from "@/components/LeftSidebarComponent.vue";
+
+@Component({
+  components: { LeftSidebarComponent }
+})
+
+export default class App extends Vue {
+
+}
+
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+@font-face {
+  font-family: "Inter-Black";
+  src: url('./assets/fonts/Inter-Black.ttf') format('truetype');
 }
 
-#nav {
-  padding: 30px;
+.font-inter-black {
+    font-family: "Inter-Black";
+    font-size: 40px;
+    font-weight: 30px;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.grey-margin-right{
+    border-right: 7px solid #797979;
 }
 </style>
