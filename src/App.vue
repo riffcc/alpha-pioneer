@@ -41,6 +41,14 @@ export default class App extends Vue {
     font-weight: 30px;
 }
 
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
 .grey-margin-right{
     border-right: 7px solid #797979;
 }
