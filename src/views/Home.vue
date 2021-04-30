@@ -1,25 +1,26 @@
 <template>
   <div class="home">
-    <v-container>
+    <v-container >
       <v-row>
-        <v-col cols="12">
+        <v-col cols="12" class="ma-0 pa-0">
           <div class="ml-10 font-inter-black white--text">
             Torrents
           </div>
         </v-col>
 
-        <v-col cols="12">
+        <v-col cols="12" class="ma-0 pa-0">
           <v-container>
             <v-row>
-              <v-col class="info" cols="12">
+              <v-col cols="12" class="ma-0 pa-0">
                 <div>
-                  <FeedComponent title="Torrents" :torrents="torrents"/>
+                  <FeedComponent title="Torrents" :torrents="torrents" :loading="loading"/>
                 </div>
               </v-col>
             </v-row>
           </v-container>
         </v-col>
       </v-row>
+
     </v-container>
   </div>
 </template>
@@ -36,6 +37,8 @@ import Torrent from "@/models/Torrent";
 })
 
 export default class Home extends Vue {
+
+  loading: Boolean = false
 
   torrents: Torrent[] = []
 
