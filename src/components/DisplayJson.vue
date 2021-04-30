@@ -21,7 +21,9 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator"
 import CoindeskService from "@/services/CoindeskService"
+import RiffTestbedService from "@/services/RiffTestbedService"
 import BPICurrentPrice from "@/models/BPICurrentPrice"
+import RiffTorrents from "@/models/RiffTorrents";
 
 @Component({
   components: {  },
@@ -29,11 +31,11 @@ import BPICurrentPrice from "@/models/BPICurrentPrice"
 
 export default class DisplayJson extends Vue{
 
-    bpiCurrentPrice: BPICurrentPrice = new BPICurrentPrice()
+    riffTorrents: RiffTorrents = new RiffTorrents()
 
     created() {
-        CoindeskService.getBPICurrentPrice(this).then(v => {
-            console.log(this.bpiCurrentPrice.bpi)
+        RiffTestbedService.getRiffTorrents(this).then(v => {
+            console.log(this.riffTorrents)
         })
     }
 
