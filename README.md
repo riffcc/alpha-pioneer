@@ -1,5 +1,7 @@
 # riff-project
 
+On development.
+
 ## Project setup
 ```
 npm install
