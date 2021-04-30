@@ -1,5 +1,6 @@
 
 import Torrent from "@/models/Torrent"
+import Vue from "vue"
 import ConstantTool from "./tools/ConstantTool"
 import JsonTool from "./tools/JsonTool"
 
@@ -11,8 +12,13 @@ export default class CoindeskService {
         component.loading = true
 
         try {
-            const response = await component.axios.get(`https://u.riff.cc/api/torrents/?api_token=${ConstantTool.RIFF_API_TOKEN}`)
+            const response = await component.axios.get(`https://u.riff.cc/api/torrents`,{
+                params: {
+                    api_token: ConstantTool.RIFF_API_TOKEN
+                }
+            })
             let convertedResponse = JsonTool.jsonConvert.deserializeArray(response.data.data, Torrent)
+            console.log(response.data)
             torrents.splice(0, torrents.length)
             convertedResponse.forEach(t => torrents.push(t))
 
@@ -31,6 +37,34 @@ export default class CoindeskService {
             console.log(response.data)
         } catch (err) {
             console.log(err)
+        }
+    }
+
+    static async getTorrentPage(component: Vue, page: number, torrents: Torrent[]) {
+
+        //@ts-ignore
+        component.loading = true
+
+        try {
+            const response = await component.axios.get(`https://u.riff.cc/api/torrents/`, {
+                params: {
+                    page: 0,
+                    api_token: ConstantTool.RIFF_API_TOKEN
+                }
+            })
+    
+            const convertedResponse = JsonTool.jsonConvert.deserializeArray(response.data.data, Torrent)
+            if (page == 0) {
+                torrents.splice(0, torrents.length)
+            }
+            convertedResponse.forEach(t => torrents.push(t))
+
+            //@ts-ignore
+            component.loading = false
+
+        } catch(err) {
+            //@ts-ignore
+            component.loading = false
         }
     }
 }

@@ -13,7 +13,7 @@
             <v-row>
               <v-col cols="12" class="ma-0 pa-0">
                 <div>
-                  <FeedComponent title="Torrents" :torrents="torrents" :loading="loading"/>
+                  <TorrentSliderComponent title="Torrents" :torrents="torrents" :loading="loading"/>
                 </div>
               </v-col>
             </v-row>
@@ -28,12 +28,12 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import DisplayJson from '../components/DisplayJson.vue'
-import FeedComponent from "@/components/FeedComponent.vue";
+import TorrentSliderComponent from "@/components/TorrentSliderComponent.vue";
 import RiffService from '@/services/RiffService'
 import Torrent from "@/models/Torrent";
 
 @Component({
-  components: { DisplayJson, FeedComponent }
+  components: { DisplayJson, TorrentSliderComponent }
 })
 
 export default class Home extends Vue {
