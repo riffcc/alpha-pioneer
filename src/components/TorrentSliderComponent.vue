@@ -1,5 +1,5 @@
 <template>
-    <v-slide-group dark show-arrows="always" center-active>
+    <v-slide-group dark center-active>
             <v-slide-item v-if="loading">
                 <v-skeleton-loader class="ml-1 mr-1 sm-3 indigo d-flex flex-column-reverse" width="250px" height="325px" type="list-item-two-line" tile>
                 </v-skeleton-loader>

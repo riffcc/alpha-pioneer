@@ -48,17 +48,20 @@ export default class CoindeskService {
         try {
             const response = await component.axios.get(`https://u.riff.cc/api/torrents/`, {
                 params: {
-                    page: 0,
+                    page: page,
                     api_token: ConstantTool.RIFF_API_TOKEN
                 }
             })
     
             const convertedResponse = JsonTool.jsonConvert.deserializeArray(response.data.data, Torrent)
-            if (page == 0) {
+            if (page == 1) {
                 torrents.splice(0, torrents.length)
             }
-            convertedResponse.forEach(t => torrents.push(t))
 
+            convertedResponse.forEach(t => torrents.push(t))
+            
+            //@ts-ignore
+            component.page = (component.page + 1)
             //@ts-ignore
             component.loading = false
 

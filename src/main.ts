@@ -11,8 +11,14 @@ import lineClamp from "vue-line-clamp"
 import vueDebounce from "vue-debounce"
 import axios from "axios"
 import vueAxios from "vue-axios"
+import PerfectScrollbar from 'vue2-perfect-scrollbar'
+import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
 
 Vue.config.productionTip = false
+Vue.use(PerfectScrollbar, {
+  options: {
+  }
+})
 Vue.use(vueAxios, axios)
 Vue.use(vueDebounce, { defaultTime: '700ms' })
 Vue.use(lineClamp, {})
