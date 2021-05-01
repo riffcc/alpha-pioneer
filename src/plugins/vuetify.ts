@@ -3,7 +3,19 @@ import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
 import es from 'vuetify/src/locale/es';
 
+import Star from '../assets/icons/Star.vue'
+import Search from '../assets/icons/Search.vue'
+import QuestionCircle from '../assets/icons/QuestionCircle.vue'
+import Music from '../assets/icons/Music.vue'
+import Gamepad from '../assets/icons/Gamepad.vue'
+import Film from '../assets/icons/Film.vue'
+import Books from '../assets/icons/Books.vue'
+
 Vue.use(Vuetify);
+
+const MY_ICONS = {
+  star: '../assets/icons/star.svg'
+}
 
 export default new Vuetify({
   theme: {
@@ -22,8 +34,19 @@ export default new Vuetify({
       },
     },
   },
-    lang: {
+  lang: {
       locales: { es },
       current: 'es',
+  },
+  icons: {
+    values: {
+      star: { component: Star },
+      music: { component: Music },
+      video: { component: Film },
+      gamepad: { component: Gamepad },
+      books: { component: Books },
+      info: { component: QuestionCircle },
+      search: { component: Search },
     },
+  },
 });

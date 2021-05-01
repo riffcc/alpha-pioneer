@@ -2,10 +2,8 @@
   <v-app>
 
     <v-main class="grey darken-4">
-
-        <!--v-flex md1 class="grey-margin-right">
-          <LeftSidebarComponent class="grey darken-4"/>
-        </v-flex-->
+        
+        <LeftSidebarComponent/>
         
         <router-view/>
 
@@ -49,6 +47,6 @@ export default class App extends Vue {
 }
 
 .grey-margin-right{
-    border-right: 7px solid #797979;
+    border-right: 50px solid #797979;
 }
 </style>

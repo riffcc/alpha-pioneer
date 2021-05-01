@@ -58,6 +58,8 @@ export default class CoindeskService {
                 torrents.splice(0, torrents.length)
             }
 
+            console.log(response.data)
+
             convertedResponse.forEach(t => torrents.push(t))
             
             //@ts-ignore
