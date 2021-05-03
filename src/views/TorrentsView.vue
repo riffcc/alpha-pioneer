@@ -4,27 +4,12 @@
             <v-row no-gutters>
                 <v-col cols="12" id="header" class="header">
                     <div class="white--text font-inter-black">
-                        Torrents
+                        {{ categoryTitle }}
                     </div>
                 </v-col>
             </v-row>
-                <perfect-scrollbar @ps-y-reach-end="updateList" @ps-scroll-down="showHeader(false)" @ps-scroll-up="showHeader(true)" ref="scrollbar">
-                    <v-row no-gutters>
-                            <v-col v-for="(torrent, key) in torrents" :key="key" cols="12" md="3" xl="2">
-                                <div flat tile  class="d-flex justify-center flex-column" dark>
-                                    <div class="d-flex justify-center">
-                                        <v-img class="ma-1 black preview-torrent-img" src="https://picsum.photos/250/250"></v-img>
-                                    </div>
-                                    <div class="torrent-text text-center pa-2 body-1 title white--text">
-                                        <p v-line-clamp:5="2">{{torrent.attributes.name}}</p>
-                                    </div>
-                                </div>
-                            </v-col>
-
-                            <v-col cols="12" lg="2" class="d-flex flex-column-reverse">
-                                <v-skeleton-loader dark class="ma-2 pa-2" type="list-item-two-line" tile></v-skeleton-loader>
-                            </v-col>
-                    </v-row>
+                <perfect-scrollbar v-if="categoryExists" @ps-y-reach-end="updateList" @ps-scroll-down="showHeader(false)" @ps-scroll-up="showHeader(true)" ref="scrollbar">
+                    <TorrentListComponent :torrents="torrents"/>
                 </perfect-scrollbar>
         </v-container>
     </div>
@@ -35,31 +20,41 @@ import { Component, Vue, Watch } from "vue-property-decorator"
 import RiffService from '@/services/RiffService'
 import Torrent from "@/models/Torrent"
 import { PerfectScrollbar } from 'vue2-perfect-scrollbar'
-import $ from "jquery"
+import TorrentListComponent from '@/components/TorrentListComponent.vue'
+
+import CategoriesModule from "@/store/CategoriesModule";
+import {getModule} from "vuex-module-decorators";
+
 
 @Component({
-    components: { PerfectScrollbar }
+    components: { PerfectScrollbar, TorrentListComponent }
 })
 
-export default class Home extends Vue {
+export default class TorrentsView extends Vue {
     
+    categoriesModule: CategoriesModule = getModule(CategoriesModule)
+    actualCategory: string = this.$route.params.category
+
+    categoryExists: Boolean = new Boolean
+
+    categoryTitle: string = "1"
     loading: Boolean = false
     torrents: Torrent[] = []
     page: number = 0
-    header: boolean = true
     headerContainer = document.getElementById("header")
 
-    created() {
-        RiffService.getTorrentPage(this, this.page, this.torrents)
+    get categories() {
+        return this.categoriesModule.categories
     }
 
-    bruh() {
-        console.log("SKELETON")
+    created() {
+        console.log("CHANGE")
+        this.categoryExists = this.existByCategory(this.actualCategory)
+        RiffService.getTorrentPage(this, this.page, this.torrents)
     }
 
     updateList() {
         if (!this.loading) {
-            console.log("REFRESH")
             RiffService.getTorrentPage(this, this.page, this.torrents)
         }
     }
@@ -70,8 +65,38 @@ export default class Home extends Vue {
         } else {
             document.getElementById("header")?.classList.add("header-hidden")
         }
-        this.header = h
     }
+
+    existByCategory(category: string) {
+
+        let exist: Boolean = false
+
+        for (let i of this.categories) {
+            if (i.toLowerCase() == category.toLowerCase()) {
+                console.log(i)
+                this.categoryTitle = i
+                console.log(this.categoryTitle)
+                exist = true
+            }
+        }
+
+        if (!exist) {
+            this.categoryTitle = "This category does not exists."
+        }
+
+        return exist
+
+    }
+
+    @Watch('$route')
+    onRouteChange() {
+        this.categoryExists = this.existByCategory(this.$route.params.category)
+        this.torrents.splice(0, this.torrents.length)
+        RiffService.getTorrentPage(this, this.page, this.torrents)
+        this.page = 0
+        this.$forceUpdate()
+    }
+
 
 }
 </script>

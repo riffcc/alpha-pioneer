@@ -22,7 +22,8 @@
     "vue-svg-custom-icon": "^1.0.7",
     "vue2-perfect-scrollbar": "^1.5.0",
     "vuetify": "^2.4.0",
-    "vuex": "^3.4.0"
+    "vuex": "^3.4.0",
+    "vuex-module-decorators": "^1.0.1"
   },
   "devDependencies": {
     "@types/jquery": "^3.5.5",

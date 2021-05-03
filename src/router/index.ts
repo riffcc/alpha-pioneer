@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 
 Vue.use(VueRouter)
 
+
+
 const routes: Array<RouteConfig> = [
   {
     path: '/',
@@ -11,12 +13,12 @@ const routes: Array<RouteConfig> = [
     component: Home
   },
   {
-    path: '/torrents',
-    name: 'Torrents',
-    component: () => import('../views/TorrentsView.vue')
+    path: '/torrents/:category',
+    name: 'Category',
+    component: () => import(/* webpackChunkName: "category" */'../views/TorrentsView.vue')
+    
   }
 ]
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,

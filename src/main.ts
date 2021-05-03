@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
+import store from './store/store'
 import vuetify from './plugins/vuetify'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@mdi/font/css/materialdesignicons.css'
@@ -15,10 +15,8 @@ import vueAxios from "vue-axios"
 import VueSvgLoader from "vue-svg-icon-loader"
 import PerfectScrollbar from 'vue2-perfect-scrollbar'
 import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
-import $ from "jquery"
 
 Vue.config.productionTip = false
-//Vue.use(VueSvgLoader)
 Vue.use(PerfectScrollbar, {})
 Vue.use(vueAxios, axios)
 Vue.use(vueDebounce, { defaultTime: '700ms' })
