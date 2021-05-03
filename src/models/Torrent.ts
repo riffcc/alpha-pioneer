@@ -3,6 +3,8 @@ import { JsonObject, JsonProperty, Any } from "json2typescript";
 @JsonObject("Attributes")
 
 class Attributes {
+    @JsonProperty("cover_uploaded", Any, true)
+    cover_uploaded?: any = undefined
     @JsonProperty("name", String, true)
     name?: string = undefined    
     @JsonProperty("release_year", Any, true)

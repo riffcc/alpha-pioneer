@@ -40,7 +40,7 @@ export default class TorrentsView extends Vue {
     categoryTitle: string = "1"
     loading: Boolean = false
     torrents: Torrent[] = []
-    page: number = 0
+    page: number = 1
     headerContainer = document.getElementById("header")
 
     get categories() {
@@ -92,8 +92,8 @@ export default class TorrentsView extends Vue {
     onRouteChange() {
         this.categoryExists = this.existByCategory(this.$route.params.category)
         this.torrents.splice(0, this.torrents.length)
-        RiffService.getTorrentPage(this, this.page, this.torrents)
         this.page = 0
+        RiffService.getTorrentPage(this, this.page, this.torrents)
         this.$forceUpdate()
     }
 

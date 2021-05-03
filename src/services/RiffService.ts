@@ -72,4 +72,12 @@ export default class CoindeskService {
             component.loading = false
         }
     }
+
+    static getCoverURL(torrent: Torrent) {
+        if (torrent.attributes?.cover_uploaded != null) {
+            return `https://origin.riff.cc/covers/${torrent.id}.png`
+        } else {
+            return null
+        }
+    }
 }
