@@ -5,6 +5,8 @@
         
         <LeftSidebarComponent/>
         
+        <!--AudioPlayerComponent :sources="audioSources" :loop="false"></AudioPlayerComponent-->
+
         <router-view/>
 
 
@@ -15,12 +17,19 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import LeftSidebarComponent from "@/components/LeftSidebarComponent.vue";
+import AudioPlayerComponent from "@/components/AudioPlayerComponent.vue";
 
 @Component({
-  components: { LeftSidebarComponent }
+  components: { LeftSidebarComponent, AudioPlayerComponent }
 })
 
 export default class App extends Vue {
+
+  audioSources = [
+    "http://starmen.net/mother2/music/170-%20Earthbound%20-%20OK%20_Ssuka_.mp3",
+    /**"assets/audio/fallback.mp3",
+    "assets/audio/fallback2.wav"*/
+  ]
 
 }
 

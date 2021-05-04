@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
-import Home from '../views/Home.vue'
+import FeaturedView from '../views/FeaturedView.vue'
 
 Vue.use(VueRouter)
 
@@ -9,8 +9,8 @@ Vue.use(VueRouter)
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Featured',
+    component: FeaturedView
   },
   {
     path: '/torrents/:category',

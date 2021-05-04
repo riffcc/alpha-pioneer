@@ -40,7 +40,7 @@ export default class TorrentsView extends Vue {
     categoryTitle: string = "1"
     loading: Boolean = false
     torrents: Torrent[] = []
-    page: number = 1
+    page: number = 216
     headerContainer = document.getElementById("header")
 
     get categories() {

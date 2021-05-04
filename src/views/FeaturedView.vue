@@ -8,17 +8,13 @@
           </div>
         </v-col>
 
-        <v-col cols="12" class="ma-0 pa-0">
+        <v-col cols="12">
           <v-container>
             <v-row>
-              <v-col cols="12" class="ma-0 pa-0">
+              <v-col cols="12">
                 <div>
-                  <!--TorrentSliderComponent title="Torrents" :torrents="torrents" :loading="loading"/-->
+                  <!--TorrentSliderComponent :torrents="torrents" :loading="loading"/-->
                 </div>
-              </v-col>
-
-              <v-col cols="6" class="info">
-                <v-icon color="white">$star</v-icon>
               </v-col>
             </v-row>
           </v-container>
@@ -46,10 +42,12 @@ export default class Home extends Vue {
 
   loading: Boolean = false
 
-  torrents: Torrent[] = []
+  
+
+  featuredTorrents: Torrent[] = []
 
   created() {
-    RiffService.getTorrents(this, this.torrents)
+    RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/main.json")
   }
 }
 </script>

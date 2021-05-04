@@ -33,7 +33,11 @@ export default class CoindeskService {
 
     static async getTorrent(component: Vue, id: number) {
         try {
-            const response = await component.axios.get(`https://u.riff.cc/api/torrents/${id}/?api_token=${ConstantTool.RIFF_API_TOKEN}`)
+            const response = await component.axios.get(`https://u.riff.cc/api/torrents/${id}/`, {
+                params: {
+                    api_token: ConstantTool.RIFF_API_TOKEN
+                }
+            })
             console.log(response.data)
         } catch (err) {
             console.log(err)
@@ -70,6 +74,20 @@ export default class CoindeskService {
         } catch(err) {
             //@ts-ignore
             component.loading = false
+        }
+    }
+
+    static async getFeaturedTorrents(component: Vue, URL: string) {
+        try {
+            const response = await component.axios.get(URL, {
+                headers: {
+                    "Access-Control-Allow-Origin": "http://localhost:8080"
+                }
+            })
+            const convertedResponse = JsonTool.jsonConvert.deserializeArray(response.data, Number)
+            console.log(convertedResponse)
+        } catch (err) {
+            console.log(err)
         }
     }
 

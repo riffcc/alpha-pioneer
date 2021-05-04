@@ -15,8 +15,11 @@ import vueAxios from "vue-axios"
 import VueSvgLoader from "vue-svg-icon-loader"
 import PerfectScrollbar from 'vue2-perfect-scrollbar'
 import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
+// @ts-ignore
+import VueAudio from 'vue-audio-better'
 
 Vue.config.productionTip = false
+Vue.use(VueAudio)
 Vue.use(PerfectScrollbar, {})
 Vue.use(vueAxios, axios)
 Vue.use(vueDebounce, { defaultTime: '700ms' })

@@ -35,7 +35,7 @@ import { Component, Vue } from "vue-property-decorator";
 export default class LeftSidebarComponent extends Vue {
 
     sidebarTopIcons = [
-		{ icon: "star", target: "" },
+		{ icon: "star", target: "featured" },
 		{ icon: "music", target: "music" },
 		{ icon: "video", target: "tv" },
 		{ icon: "gamepad", target: "games" },
