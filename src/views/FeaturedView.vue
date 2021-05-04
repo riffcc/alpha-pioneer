@@ -1,25 +1,14 @@
 <template>
   <div class="home">
     <v-container>
-      <v-row>
-        <v-col cols="12" class="ma-0 pa-0">
-          <div class="ml-10 font-inter-black white--text">
-            Torrents
-          </div>
-        </v-col>
 
-        <v-col cols="12">
-          <v-container>
-            <v-row>
-              <v-col cols="12">
-                <div>
-                  <!--TorrentSliderComponent :torrents="torrents" :loading="loading"/-->
-                </div>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-col>
-      </v-row>
+      <FeaturedTorrentListComponent title="Featured"  :torrents="featuredTorrents" :loading="loading"/>
+
+      <FeaturedTorrentListComponent title="Movies" :torrents="movieTorrents" :loading="loading"/>
+
+      <FeaturedTorrentListComponent title="Tv" :torrents="tvTorrents" :loading="loading"/>
+
+      <FeaturedTorrentListComponent title="Music" :torrents="musicTorrents" :loading="loading"/>
 
     </v-container>
   </div>
@@ -30,24 +19,28 @@ import { Component, Vue } from "vue-property-decorator";
 import DisplayJson from '../components/DisplayJson.vue'
 import TorrentSliderComponent from "@/components/TorrentSliderComponent.vue";
 import RiffService from '@/services/RiffService'
+import FeaturedTorrentListComponent from "@/components/FeaturedTorrentListComponent.vue";
 import Torrent from "@/models/Torrent";
-//@ts-ignore
-import Star from "../assets/icons/star.svg";
 
 @Component({
-  components: { DisplayJson, TorrentSliderComponent, Star }
+  components: { DisplayJson, TorrentSliderComponent, FeaturedTorrentListComponent }
 })
 
 export default class Home extends Vue {
 
   loading: Boolean = false
 
-  
-
   featuredTorrents: Torrent[] = []
+  movieTorrents: Torrent[] = []
+  tvTorrents: Torrent[] = []
+  musicTorrents: Torrent[] = []
 
   created() {
-    RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/main.json")
+    RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/main.json", this.featuredTorrents)
+    RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/0.json", this.movieTorrents)
+    RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/1.json", this.tvTorrents)
+    RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/2.json", this.musicTorrents)
   }
+
 }
 </script>
