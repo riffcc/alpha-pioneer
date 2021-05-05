@@ -17,8 +17,14 @@ import PerfectScrollbar from 'vue2-perfect-scrollbar'
 import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
 // @ts-ignore
 import VueAudio from 'vue-audio-better'
+// @ts-ignore
+import VideoPlayer from 'vue-videojs7'
 
 Vue.config.productionTip = false
+Vue.use(VideoPlayer, /* {
+  options: global default videojs options,
+  events: global videojs videojs events
+} */)
 Vue.use(VueAudio)
 Vue.use(PerfectScrollbar, {})
 Vue.use(vueAxios, axios)

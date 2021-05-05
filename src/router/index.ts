@@ -4,8 +4,6 @@ import FeaturedView from '../views/FeaturedView.vue'
 
 Vue.use(VueRouter)
 
-
-
 const routes: Array<RouteConfig> = [
   {
     path: '/',
@@ -16,7 +14,12 @@ const routes: Array<RouteConfig> = [
     path: '/torrents/:category',
     name: 'Category',
     component: () => import(/* webpackChunkName: "category" */'../views/TorrentsView.vue')
-    
+  },
+
+  {
+    path: '/test',
+    name: 'Test',
+    component: () => import(/* webpackChunkName: "category" */'../views/TestView.vue')
   }
 ]
 const router = new VueRouter({

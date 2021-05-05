@@ -2,14 +2,16 @@
   <div class="home">
     <v-container>
 
-      <!--FeaturedTorrentListComponent title="Featured"  :torrents="featuredTorrents" :loading="loading"/>
+      <FeaturedTorrentListComponent title="Featured"  :torrents="featuredTorrents" :loading="loading"/>
 
       <FeaturedTorrentListComponent title="Movies" :torrents="movieTorrents" :loading="loading"/>
 
       <FeaturedTorrentListComponent title="Tv" :torrents="tvTorrents" :loading="loading"/>
 
-      <FeaturedTorrentListComponent title="Music" :torrents="musicTorrents" :loading="loading"/-->
-      <AudioPlayerComponent :sources="audioSources"/>
+      <FeaturedTorrentListComponent title="Music" :torrents="musicTorrents" :loading="loading"/>
+
+
+      <!--AudioPlayerComponent :sources="audioSources"/-->
  
     </v-container>
   </div>
@@ -39,15 +41,13 @@ export default class Home extends Vue {
 
   audioSources = [
           "http://starmen.net/mother2/music/170-%20Earthbound%20-%20OK%20_Ssuka_.mp3"
-        ]
+  ]
 
   created() {
-    /*
-    RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/main.json", this.featuredTorrents)
-    RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/0.json", this.movieTorrents)
-    RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/1.json", this.tvTorrents)
-    RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/2.json", this.musicTorrents)
-    */
+    //RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/main.json", this.featuredTorrents)
+    RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/0.json", this.movieTorrents).then(() => { console.log(this.movieTorrents) })
+    //RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/1.json", this.tvTorrents)
+    //RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/2.json", this.musicTorrents)
   }
 
 }
