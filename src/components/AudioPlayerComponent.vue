@@ -16,19 +16,14 @@
 
       </v-flex>
 
-      <span>Total duration: {{ duration }} seconds</span>
-      <span>Progress: {{setProgressValue(progress)}} {{ (progress * 100) }}%</span>
-
 
       <v-flex class="info d-flex justify-center">
-      {{progressValue}}
-
-        <v-slider v-model="progressValue" min="0" max="100">
-          
+      
+        <v-slider :value="Math.round(progress * 100)" min="0" max="100" @click="bruh" @change="v => setProgress(v)">
         </v-slider>
-
+        
       </v-flex>
-
+      {{Math.round(progress * 100)}}
 
     </v-card>
   </div>
@@ -43,22 +38,10 @@ import VueHowler from 'vue-howler'
   mixins: [VueHowler]
 })
 
-
 export default class AudioPlayerComponent extends Vue {
-
-  //@ts-ignore
-  progressValue: number = 0
-
-
-  setProgressValue(n: number){
-    this.progressValue = Math.round(n * 100)
+  bruh() {
+    console.log("CLICK")
   }
-
-  @Watch('progressValue')
-  onProgressValueChanged() {
-    //console.log(progress)
-  }
-
 }
 
 </script>

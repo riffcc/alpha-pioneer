@@ -2,14 +2,15 @@
   <div class="home">
     <v-container>
 
-      <FeaturedTorrentListComponent title="Featured"  :torrents="featuredTorrents" :loading="loading"/>
+      <!--FeaturedTorrentListComponent title="Featured"  :torrents="featuredTorrents" :loading="loading"/>
 
       <FeaturedTorrentListComponent title="Movies" :torrents="movieTorrents" :loading="loading"/>
 
       <FeaturedTorrentListComponent title="Tv" :torrents="tvTorrents" :loading="loading"/>
 
-      <FeaturedTorrentListComponent title="Music" :torrents="musicTorrents" :loading="loading"/>
-
+      <FeaturedTorrentListComponent title="Music" :torrents="musicTorrents" :loading="loading"/-->
+      <AudioPlayerComponent :sources="audioSources"/>
+ 
     </v-container>
   </div>
 </template>
@@ -20,10 +21,11 @@ import DisplayJson from '../components/DisplayJson.vue'
 import TorrentSliderComponent from "@/components/TorrentSliderComponent.vue";
 import RiffService from '@/services/RiffService'
 import FeaturedTorrentListComponent from "@/components/FeaturedTorrentListComponent.vue";
+import AudioPlayerComponent from "@/components/AudioPlayerComponent.vue";
 import Torrent from "@/models/Torrent";
 
 @Component({
-  components: { DisplayJson, TorrentSliderComponent, FeaturedTorrentListComponent }
+  components: { DisplayJson, TorrentSliderComponent, FeaturedTorrentListComponent, AudioPlayerComponent}
 })
 
 export default class Home extends Vue {
@@ -35,11 +37,17 @@ export default class Home extends Vue {
   tvTorrents: Torrent[] = []
   musicTorrents: Torrent[] = []
 
+  audioSources = [
+          "http://starmen.net/mother2/music/170-%20Earthbound%20-%20OK%20_Ssuka_.mp3"
+        ]
+
   created() {
+    /*
     RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/main.json", this.featuredTorrents)
     RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/0.json", this.movieTorrents)
     RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/1.json", this.tvTorrents)
     RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/2.json", this.musicTorrents)
+    */
   }
 
 }
