@@ -19,12 +19,19 @@ import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
 import VueAudio from 'vue-audio-better'
 // @ts-ignore
 import VideoPlayer from 'vue-videojs7'
+// @ts-ignore
+import VueVideoPlayer from 'vue-vjs-hls'
 
 Vue.config.productionTip = false
-Vue.use(VideoPlayer, /* {
-  options: global default videojs options,
-  events: global videojs videojs events
-} */)
+
+VueVideoPlayer.config({
+  youtube: true,  // default false
+  switcher: true, // default true
+  hls: true       // default true
+})
+
+Vue.use(VideoPlayer)
+Vue.use(VueVideoPlayer)
 Vue.use(VueAudio)
 Vue.use(PerfectScrollbar, {})
 Vue.use(vueAxios, axios)
