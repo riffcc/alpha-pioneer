@@ -44,10 +44,10 @@ export default class Home extends Vue {
   ]
 
   created() {
-    //RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/main.json", this.featuredTorrents)
+    RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/main.json", this.featuredTorrents)
     RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/0.json", this.movieTorrents).then(() => { console.log(this.movieTorrents) })
-    //RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/1.json", this.tvTorrents)
-    //RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/2.json", this.musicTorrents)
+    RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/1.json", this.tvTorrents)
+    RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/2.json", this.musicTorrents)
   }
 
 }

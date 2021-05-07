@@ -15,11 +15,16 @@ const routes: Array<RouteConfig> = [
     name: 'Category',
     component: () => import(/* webpackChunkName: "category" */'../views/TorrentsView.vue')
   },
+  {
+    path: '/movie/:streamId',
+    name: 'Movie',
+    component: () => import(/* webpackChunkName: "movie" */'../views/MovieView.vue')
+  },
 
   {
     path: '/test',
     name: 'Test',
-    component: () => import(/* webpackChunkName: "category" */'../views/TestView.vue')
+    component: () => import(/* webpackChunkName: "test" */'../views/TestView.vue')
   }
 ]
 const router = new VueRouter({

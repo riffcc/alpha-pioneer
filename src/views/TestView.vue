@@ -1,54 +1,73 @@
 <template>
-    <div class="d-flex justify-center info">
+    <div class="ma-1">
 
-            <div class="video-container" id="XD">
-                <videoPlayer :options="videoOptions"></videoPlayer>
-            </div>
+        <v-card flat width="300px" class="ma-1">
 
-            <v-btn @click="bruh">
-                XD
-            </v-btn>
+            <v-card-title>
+                User Interface
+            </v-card-title>
+
+            <v-list class="d-flex justify-center flex-column">
+                <v-list-item>
+                    <v-btn depressed width="100%" dark class="indigo ma-1" @click="toggleSidebar(true)">
+                        Show Sidebar
+                    </v-btn>
+
+                </v-list-item>
+
+                <v-list-item>
+                    <v-btn depressed width="100%" dark class="indigo ma-1" @click="toggleSidebar(false)">
+                        Hide Sidebar
+                    </v-btn>
+                </v-list-item>
+            </v-list>
+        </v-card>
+
+        <v-card flat width="300px" class="ma-1">
+
+            <v-card-title>
+                Feature Tests
+            </v-card-title>
+
+            <v-list class="d-flex justify-center flex-column">
+                <v-list-item>
+                    <router-link class="full-width ma-1 text-decoration-none" :to="`/movie/QmYN8HXLT7oguXYmVp3qZcVgASh1G8R3dJcUymXuWT2ZwA`">
+                        <v-btn depressed width="100%" dark class="indigo ma-1">
+                            Movie
+                        </v-btn>
+                    </router-link>
+                </v-list-item>
+
+                <v-list-item>
+                    <router-link class="full-width ma-1 text-decoration-none" :to="`/`">
+                        <v-btn depressed width="100%" dark class="indigo ma-1">
+                            Music
+                        </v-btn>
+                    </router-link>
+                </v-list-item>
+            </v-list>
+        </v-card>
+
     </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator"
-// @ts-ignore
-import { videoPlayer } from 'vue-vjs-hls'
+import UserInterface from "@/store/UserInterface"
+import { Component, Vue, Watch } from "vue-property-decorator"
+import { getModule } from "vuex-module-decorators"
 
 @Component({
-    components: { videoPlayer }
+    components: {  }
 })
 
 export default class TestView extends Vue {
 
-    bruh() {
-        document.getElementById("XD")!.classList.toggle("video-container-full")
+    userInterface: UserInterface = getModule(UserInterface)
+
+    toggleSidebar(v: boolean) {
+        this.userInterface.showSidebar(v);
     }
 
-    videoOptions = {
-        source: {
-            type: "video/mp4",
-            src: 'https://cdn.riff.cc/ipfs/QmYN8HXLT7oguXYmVp3qZcVgASh1G8R3dJcUymXuWT2ZwA',
-        },
-        poster: 'http://cn.vuejs.org/images/logo.png',
-        autoplay: false
-    }
 }
 
 </script>
-
-<style>
-.video-container{
-    width: 50%;
-    height: 50%;
-
-    transition-delay: 0s;
-    transition-duration: 0.5s;
-}
-
-.video-container-full{
-    width: 100%;
-    height: 100%;
-}
-</style>

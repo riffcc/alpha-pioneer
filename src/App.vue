@@ -3,11 +3,11 @@
 
     <v-main class="grey darken-4">
         
-        <LeftSidebarComponent/>
+        <LeftSidebarComponent  v-if="showSidebar"/>
         
         <!--AudioPlayerComponent :sources="audioSources" :loop="false"></AudioPlayerComponent-->
 
-        <router-view/>
+        <router-view style="transition-duration: 0.5s;"/>
 
 
     </v-main>
@@ -15,15 +15,23 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-import LeftSidebarComponent from "@/components/LeftSidebarComponent.vue";
-import AudioPlayerComponent from "@/components/AudioPlayerComponent.vue";
+import { Component, Vue } from "vue-property-decorator"
+import LeftSidebarComponent from "@/components/LeftSidebarComponent.vue"
+import AudioPlayerComponent from "@/components/AudioPlayerComponent.vue"
+import UserInterface from "@/store/UserInterface"
+import { getModule } from "vuex-module-decorators"
 
 @Component({
   components: { LeftSidebarComponent, AudioPlayerComponent }
 })
 
 export default class App extends Vue {
+
+  userInterface: UserInterface = getModule(UserInterface)
+
+  get showSidebar() {
+    return this.userInterface.sidebar
+  }
 
   audioSources = [
     "http://starmen.net/mother2/music/170-%20Earthbound%20-%20OK%20_Ssuka_.mp3",
