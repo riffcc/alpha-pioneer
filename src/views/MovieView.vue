@@ -1,23 +1,18 @@
 <template>
-    <div class="d-flex justify-center full-width full-height">
-
-
-        <div v-if="!canPlay" class="full-width full-height">
-            <div style="height: 10%" class="font-inter-black ma-3 white--text">
-                Loading (Insert Movie Name) <v-icon class="mdi-spin white--text" size="64">mdi-loading</v-icon>
-            </div>
-
-            <div style="height: 90%;" class="d-flex flex-column justify-center align-center">
-                <div class="success">
-                    <v-img class="mx-auto indigo" src="https://origin.riff.cc/covers/1.png" width="600px" height="500px"></v-img>
-                </div>
-            </div>
-
+    <div class="d-flex full-width flex-column full-height">
+        <div class="mx-5 my-2 font-inter-black white--text">
+            Loading (Insert Movie Name) <v-icon class="mx-2 mdi-spin white--text" size="64">mdi-loading</v-icon>
         </div>
 
-        <div v-show="canPlay" class="full-width full-height">
+        <div class="d-flex full-height align-center justify-center">
+            <div class="success" style="width: 40%; height: 70%;">
+                <v-img class="indigo" src="https://origin.riff.cc/covers/1.png" width="100%" height="100%"></v-img>
+            </div>
+        </div>
+
+        <!--div v-show="canPlay" class="full-width full-height">
             <videoPlayer :options="videoOptions" style="height: 100%;" @player-state-changed="playerStateChanged"></videoPlayer>
-        </div>
+        </div-->
     </div>
 </template>
 
