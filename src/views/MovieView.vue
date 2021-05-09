@@ -1,13 +1,17 @@
 <template>
     <div class="d-flex full-width flex-column full-height">
-        <div class="mx-5 my-2 font-inter-black white--text">
-            Loading (Insert Movie Name) <v-icon class="mx-2 mdi-spin white--text" size="64">mdi-loading</v-icon>
+        <div class="mx-5 font-inter-black white--text">
+            Loading... <v-icon class="mx-2 mdi-spin white--text" size="64">mdi-loading</v-icon>
         </div>
 
         <div class="d-flex full-height align-center justify-center">
-            <div class="success" style="width: 40%; height: 70%;">
+            <div class="success" style="width: 40%; height: 80%;">
                 <v-img class="indigo" src="https://origin.riff.cc/covers/1.png" width="100%" height="100%"></v-img>
             </div>
+        </div>
+
+        <div class="mx-5 d-flex align-self-end font-inter-black white--text">
+            Loading now <v-icon style="display: fixed; margin-top: -50px;" class="mx-2 mdi-spin white--text" size="94">mdi-loading</v-icon>
         </div>
 
         <!--div v-show="canPlay" class="full-width full-height">

@@ -1,18 +1,12 @@
 <template>
-  <div class="home">
-    <v-container>
-
+  <div>
+    <v-container fluid>
       <FeaturedTorrentListComponent title="Featured"  :torrents="featuredTorrents" :loading="loading"/>
-
       <FeaturedTorrentListComponent title="Movies" :torrents="movieTorrents" :loading="loading"/>
-
       <FeaturedTorrentListComponent title="Tv" :torrents="tvTorrents" :loading="loading"/>
-
       <FeaturedTorrentListComponent title="Music" :torrents="musicTorrents" :loading="loading"/>
-
-
       <!--AudioPlayerComponent :sources="audioSources"/-->
- 
+
     </v-container>
   </div>
 </template>
