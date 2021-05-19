@@ -4,7 +4,8 @@
             <v-row no-gutters>
                 <v-col cols="12" id="header" class="header">
                     <div class="white--text font-inter-black">
-                        {{ categoryTitle }}
+                        {{ categoryTitle }}  
+                        <v-icon v-if="loading" class="mx-2 mdi-spin white--text" size="32">mdi-loading</v-icon>
                     </div>
                 </v-col>
             </v-row>
@@ -96,7 +97,6 @@ export default class TorrentsView extends Vue {
         RiffService.getTorrentPage(this, this.page, this.torrents)
         this.$forceUpdate()
     }
-
 
 }
 </script>

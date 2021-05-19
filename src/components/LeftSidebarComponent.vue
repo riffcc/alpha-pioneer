@@ -3,7 +3,7 @@
         <v-layout column fill-height>
             <v-list dense>
                 <v-list-item v-for="(icon, key) in sidebarTopIcons" :key="key">
-                    <router-link class="ma-lg-2 d-flex justify-center full-width" :to="`${icon.target}`">
+                    <router-link class="ma-lg-2 d-flex justify-center full-width rotating" :to="`${icon.target}`">
                         <v-btn icon>
                             <v-icon size="40%">${{icon.icon}}</v-icon>
                         </v-btn>
@@ -14,8 +14,8 @@
 
             <v-list dense>
                 <v-list-item class="d-flex justify-center mb-lg-5" v-for="(icon, key) in sidebarBottomIcons" :key="key">
-                    <router-link class="ma-lg-2 d-flex justify-center full-width" :to="`/torrents/${icon.target}`">
-                        <v-btn icon class="full-width full-height">
+                    <router-link class="ma-lg-2 d-flex justify-center full-width rotating" :to="`/torrents/${icon.target}`">
+                        <v-btn icon>
                             <v-icon size="40%">${{icon.icon}}</v-icon>
                         </v-btn>
                     </router-link>

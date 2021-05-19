@@ -1,6 +1,5 @@
 <template>
     <v-row no-gutters>
-        <v-icon>mdi-audiobook</v-icon>
         <v-col v-for="(torrent, key) in torrents" :key="key" cols="12" md="3" xl="2">
             <div flat tile  class="d-flex justify-center flex-column" dark>
                 <div class="d-flex justify-center">

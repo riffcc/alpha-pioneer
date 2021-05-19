@@ -63,6 +63,14 @@ export default class App extends Vue {
   height: 100%;
 }
 
+.rotating {
+  transition: transform 1s ease-in-out;
+}
+
+.rotating:hover {
+  transform: rotateZ(360deg);
+}
+
 .grey-margin-right{
     border-right: 50px solid #797979;
 }

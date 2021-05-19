@@ -3,15 +3,20 @@
         <div class="mx-5 font-inter-black white--text">
             Loading... <v-icon class="mx-2 mdi-spin white--text" size="64">mdi-loading</v-icon>
         </div>
-
+        src="https://origin.riff.cc/covers/1.png"
         <div class="d-flex full-height align-center justify-center">
-            <div class="success" style="width: 40%; height: 80%;">
-                <v-img class="indigo" src="https://origin.riff.cc/covers/1.png" width="100%" height="100%"></v-img>
+            <div style="width: 40%; height: 80%;">
+                <v-img src="../assets/logo.png" width="100%" height="100%"></v-img>
             </div>
         </div>
 
         <div class="mx-5 d-flex align-self-end font-inter-black white--text">
-            Loading now <v-icon style="display: fixed; margin-top: -50px;" class="mx-2 mdi-spin white--text" size="94">mdi-loading</v-icon>
+            Loading now 
+
+            <v-img class="rotating" src="../assets/logo.png" width="50px" height="50px"></v-img>
+            <v-icon style="display: fixed; margin-top: -50px;" class="mx-2 mdi-spin white--text" size="94">
+
+            </v-icon>
         </div>
 
         <!--div v-show="canPlay" class="full-width full-height">
@@ -70,6 +75,7 @@ export default class TestView extends Vue {
 </script>
 
 <style>
+
 .video-js{
     height: 100%;
 }

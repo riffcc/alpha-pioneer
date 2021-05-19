@@ -15,14 +15,14 @@ class Attributes {
     type?: string = undefined
     @JsonProperty("resolution", Any, true)
     resolution?: any = undefined
-    @JsonProperty("size", String, true)
-    size?: string = undefined
+    @JsonProperty("size", Number, true)
+    size?: number = undefined
     @JsonProperty("num_file", Number, true)
     num_file?: number = undefined
-    @JsonProperty("freeleech", String, true)
-    freeleech?: string = undefined
-    @JsonProperty("double_upload", String, true)
-    double_upload?: string = undefined
+    @JsonProperty("freeleech", Number, true)
+    freeleech?: number = undefined
+    @JsonProperty("double_upload", Number, true)
+    double_upload?: number = undefined
     @JsonProperty("uploader", String, true)
     uploader?: string = undefined
     @JsonProperty("seeders", Number, true)
@@ -62,29 +62,3 @@ export default class Torrent {
     @JsonProperty("id", String, true)
     id?: string = undefined
 }
-
-/*{
-    "links": {
-        "first": "https://u.riff.cc/api/torrents?page=1",
-        "last": "https://u.riff.cc/api/torrents?page=219",
-        "prev": null,
-        "next": "https://u.riff.cc/api/torrents?page=2",
-        "self": "https://u.riff.cc/api/torrents"
-    },
-    "meta": {
-        "current_page": 1,
-        "from": 1,
-        "last_page": 219,
-        "links": [
-            {
-                "url": null,
-                "label": "&laquo; Previous",
-                "active": false
-            },
-        ],
-        "path": "https://u.riff.cc/api/torrents",
-        "per_page": 15,
-        "to": 15,
-        "total": 3283
-    }
-}*/

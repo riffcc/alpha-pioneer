@@ -92,13 +92,13 @@ export default class CoindeskService {
         try {
             const mainJsonResponse = await component.axios.get(URL)
             let list = mainJsonResponse.data.featured
-
             torrents.splice(0, torrents.length)
 
             for (let id of list) {
                 const response = await component.axios.get(`https://u.riff.cc/api/torrents/${id}/`, {
                     params: { api_token: ConstantTool.RIFF_API_TOKEN }
                 })
+                console.log(response.data)
                 const convertedResponse = JsonTool.jsonConvert.deserializeObject(response.data, Torrent)
                 torrents.push(convertedResponse)
             }
