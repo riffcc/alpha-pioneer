@@ -1,9 +1,10 @@
 <template>
     <div class="d-flex full-width flex-column full-height">
+        
         <div class="mx-5 font-inter-black white--text">
             Loading... <v-icon class="mx-2 mdi-spin white--text" size="64">mdi-loading</v-icon>
         </div>
-        src="https://origin.riff.cc/covers/1.png"
+
         <div class="d-flex full-height align-center justify-center">
             <div style="width: 40%; height: 80%;">
                 <v-img src="../assets/logo.png" width="100%" height="100%"></v-img>
@@ -18,10 +19,6 @@
 
             </v-icon>
         </div>
-
-        <!--div v-show="canPlay" class="full-width full-height">
-            <videoPlayer :options="videoOptions" style="height: 100%;" @player-state-changed="playerStateChanged"></videoPlayer>
-        </div-->
     </div>
 </template>
 

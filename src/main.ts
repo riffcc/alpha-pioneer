@@ -11,14 +11,8 @@ import lineClamp from "vue-line-clamp"
 import vueDebounce from "vue-debounce"
 import axios from "axios"
 import vueAxios from "vue-axios"
-// @ts-ignore
-import VueSvgLoader from "vue-svg-icon-loader"
 import PerfectScrollbar from 'vue2-perfect-scrollbar'
 import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
-// @ts-ignore
-import VueAudio from 'vue-audio-better'
-// @ts-ignore
-import VideoPlayer from 'vue-videojs7'
 // @ts-ignore
 import VueVideoPlayer from 'vue-vjs-hls'
 
@@ -30,9 +24,7 @@ VueVideoPlayer.config({
   hls: true       // default true
 })
 
-Vue.use(VideoPlayer)
 Vue.use(VueVideoPlayer)
-Vue.use(VueAudio)
 Vue.use(PerfectScrollbar, {})
 Vue.use(vueAxios, axios)
 Vue.use(vueDebounce, { defaultTime: '700ms' })

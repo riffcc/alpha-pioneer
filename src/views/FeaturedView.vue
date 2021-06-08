@@ -5,7 +5,6 @@
       <FeaturedTorrentListComponent title="Movies" :torrents="movieTorrents" :loading="loading"/>
       <FeaturedTorrentListComponent title="Tv" :torrents="tvTorrents" :loading="loading"/>
       <FeaturedTorrentListComponent title="Music" :torrents="musicTorrents" :loading="loading"/>
-      <!--AudioPlayerComponent :sources="audioSources"/-->
 
     </v-container>
   </div>
@@ -17,11 +16,10 @@ import DisplayJson from '../components/DisplayJson.vue'
 import TorrentSliderComponent from "@/components/TorrentSliderComponent.vue";
 import RiffService from '@/services/RiffService'
 import FeaturedTorrentListComponent from "@/components/FeaturedTorrentListComponent.vue";
-import AudioPlayerComponent from "@/components/AudioPlayerComponent.vue";
 import Torrent from "@/models/Torrent";
 
 @Component({
-  components: { DisplayJson, TorrentSliderComponent, FeaturedTorrentListComponent, AudioPlayerComponent}
+  components: { DisplayJson, TorrentSliderComponent, FeaturedTorrentListComponent }
 })
 
 export default class Home extends Vue {
@@ -32,10 +30,6 @@ export default class Home extends Vue {
   movieTorrents: Torrent[] = []
   tvTorrents: Torrent[] = []
   musicTorrents: Torrent[] = []
-
-  audioSources = [
-          "http://starmen.net/mother2/music/170-%20Earthbound%20-%20OK%20_Ssuka_.mp3"
-  ]
 
   created() {
     RiffService.getFeaturedTorrents(this, "https://origin.riff.cc/featured/main.json", this.featuredTorrents)
