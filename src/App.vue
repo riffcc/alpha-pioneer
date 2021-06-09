@@ -1,26 +1,22 @@
 <template>
   <v-app>
-
+    <SidebarComponent v-if="showSidebar"/>
     <v-main class="grey darken-4">
-        
-        <LeftSidebarComponent  v-if="showSidebar"/>
-      
-
+        <AppBarComponent/>
         <router-view style="transition-duration: 0.5s;"/>
-
-
     </v-main>
   </v-app>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator"
-import LeftSidebarComponent from "@/components/LeftSidebarComponent.vue"
+import SidebarComponent from "@/components/SidebarComponent.vue"
+import AppBarComponent from "@/components/AppBarComponent.vue"
 import UserInterface from "@/store/UserInterface"
 import { getModule } from "vuex-module-decorators"
 
 @Component({
-  components: { LeftSidebarComponent }
+  components: { SidebarComponent, AppBarComponent }
 })
 
 export default class App extends Vue {
@@ -55,15 +51,15 @@ export default class App extends Vue {
   height: 100%;
 }
 
-.rotating {
-  transition: transform 1s ease-in-out;
-}
-
-.rotating:hover {
-  transform: rotateZ(360deg);
-}
-
 .grey-margin-right{
     border-right: 50px solid #797979;
 }
+
+.neon-button-icon:hover{
+  filter: drop-shadow( 0px 0px 5px rgb(255, 255, 255));
+  transition-duration: 0.2s;
+
+}
+
+
 </style>

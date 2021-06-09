@@ -1,17 +1,18 @@
 <template>
     <div>
-        <v-container>
+        <v-container fluid class="pa-0">
             <v-row no-gutters>
                 <v-col cols="12" id="header" class="header">
-                    <div class="white--text font-inter-black">
+                    <div class="white--text font-inter-black mx-5">
                         {{ categoryTitle }}  
                         <v-icon v-if="loading" class="mx-2 mdi-spin white--text" size="32">mdi-loading</v-icon>
                     </div>
                 </v-col>
             </v-row>
-                <perfect-scrollbar v-if="categoryExists" @ps-y-reach-end="updateList" @ps-scroll-down="showHeader(false)" @ps-scroll-up="showHeader(true)" ref="scrollbar">
-                    <TorrentListComponent :torrents="torrents"/>
-                </perfect-scrollbar>
+            <v-divider dark/>
+            <perfect-scrollbar v-if="categoryExists" @ps-y-reach-end="updateList" @ps-scroll-down="showHeader(false)" @ps-scroll-up="showHeader(true)" ref="scrollbar">
+                <TorrentListComponent :torrents="torrents"/>
+            </perfect-scrollbar>
         </v-container>
     </div>
 </template>
@@ -122,8 +123,8 @@ export default class TorrentsView extends Vue {
 }
 
 .preview-torrent-img {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
 }
 
 .torrent-text{

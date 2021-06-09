@@ -1,21 +1,25 @@
 <template>
     <v-row no-gutters>
-        <v-col v-for="(torrent, key) in torrents" :key="key" cols="12" md="3" xl="2">
-            <div flat tile  class="d-flex justify-center flex-column" dark>
-                <div class="d-flex justify-center">
-                    <v-img v-if="getCoverURL(torrent) != null" :src="getCoverURL(torrent)" class="ma-1 grey darken-3 preview-torrent-img"></v-img>
-                    <v-sheet elevation="0" v-else class="ma-1 preview-torrent-img grey darken-3 d-flex justify-center align-center">
-                        <v-icon size="100px">{{getIconByCategory(torrent.attributes.category)}}</v-icon>
-                    </v-sheet>
+        <v-col v-for="(torrent, key) in torrents" :key="key" md="2" xl="2">
+            <div class="ma-1 d-flex justify-center flex-column">
+
+                <v-img v-if="getCoverURL(torrent) != null" width="100%" height="200px" :src="getCoverURL(torrent)" class="grey darken-3"></v-img>
+
+                <v-sheet elevation="0" width="100%" height="200px" v-else class="grey darken-3 d-flex justify-center">
+                    <v-icon size="100px">{{getIconByCategory(torrent.attributes.category)}}</v-icon>
+                </v-sheet>
+
+                <div class="d-flex justify-center text-center pa-2 body-1 title white--text">
+                    <span v-line-clamp:5="2">{{torrent.attributes.name}}</span>
                 </div>
-                <div class="torrent-text text-center pa-2 body-1 title white--text">
-                    <p v-line-clamp:5="2">{{torrent.attributes.name}}</p>
-                </div>
+
             </div>
         </v-col>
-        <v-col cols="12" md="3" xl="2" class="d-flex flex-column-reverse">
-            <v-skeleton-loader dark class="ma-2 pa-2" type="list-item-two-line" tile></v-skeleton-loader>
+
+        <v-col cols="12" md="2" xl="2" class="ma-1 d-flex flex-column-reverse">
+            <v-skeleton-loader dark class="ma-1" width="200px" type="list-item-two-line" tile></v-skeleton-loader>
         </v-col>
+
     </v-row>
 </template>
 

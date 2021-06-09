@@ -6,8 +6,8 @@
             </v-slide-item>
 
             <v-slide-item v-for="(torrent, key) in torrents" :key="key" v-else>
-                <v-card flat tile class="ml-1 mr-1 slider-item sm-3">
-                    <v-img class="indigo darken-1" width="250px" height="250px"/>
+                <v-card flat tile class="ml-1 mr-1 slider-item sm-1 md-3">
+                    <v-img class="indigo darken-1" width="100%" height="100%"/>
                     <v-card-text class="white--text text--body text-center">
                         <p v-line-clamp:10="2">{{torrent.attributes.name}}</p>
                     </v-card-text>
