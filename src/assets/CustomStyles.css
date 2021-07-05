@@ -1,0 +1,73 @@
+/* Global Styles */
+@font-face {
+    font-family: "Inter-Black";
+    src: url('../assets/fonts/Inter-Black.ttf') format('truetype');
+}
+  
+.font-inter-black {
+    font-family: "Inter-Black";
+    font-size: 40px;
+    font-weight: 30px;
+}
+  
+.full-width {
+    width: 100%;
+}
+
+.full-height {
+    height: 100%;
+}
+
+.neon-button-icon:hover{
+    filter: drop-shadow( 0px 0px 5px rgb(255, 255, 255));
+    transition-duration: 0.2s;
+}
+
+/* Sidebar Component */
+
+.grey-margin-right{
+    border-right: 50px solid #797979;
+}
+
+/* Vue-Perfect-Scrollbar */
+
+.ps {
+    height: 330px;
+}
+
+.ps__rail-x {
+    display: none !important;
+    opacity: 1 !important;
+}
+
+
+
+.slider-item {
+    height: 325px;
+    width: 250px;
+}
+
+/* Torrents */
+
+.preview-torrent-img {
+    width: 200px;
+    height: 200px;
+}
+
+.torrent-text{
+    width: 100%;
+    height: 70px;
+}
+
+
+
+
+.header-hidden{
+    margin-top: -150px;
+}
+
+#container {
+    position: relative;
+    width: 600px;
+    height: 400px;
+}

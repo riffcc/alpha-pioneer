@@ -52,6 +52,7 @@
 </template>
 
 <script lang="ts">
+
 import UserInterface from "@/store/UserInterface"
 import { Component, Vue, Watch } from "vue-property-decorator"
 import { getModule } from "vuex-module-decorators"
@@ -71,3 +72,6 @@ export default class TestView extends Vue {
 }
 
 </script>
+
+<style>
+</style>

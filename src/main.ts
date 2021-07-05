@@ -5,6 +5,7 @@ import store from './store/store'
 import vuetify from './plugins/vuetify'
 import 'roboto-fontface/css/roboto/roboto-fontface.css'
 import '@mdi/font/css/materialdesignicons.css'
+import './assets/CustomStyles.css'
 
 // @ts-ignore
 import lineClamp from "vue-line-clamp"

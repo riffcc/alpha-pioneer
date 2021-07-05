@@ -112,26 +112,6 @@ export default class TorrentsView extends Vue {
     transition-duration: 0.5s;
 }
 
-.header-hidden{
-    margin-top: -150px;
-}
-
-#container {
-    position: relative;
-    width: 600px;
-    height: 400px;
-}
-
-.preview-torrent-img {
-    width: 200px;
-    height: 200px;
-}
-
-.torrent-text{
-    width: 100%;
-    height: 70px;
-}
-
 </style>
 
 <style src="vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css"/>
