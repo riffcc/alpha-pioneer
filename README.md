@@ -1,6 +1,8 @@
-# riff-project
+# Riff.CC Frontend Next
 
-On development.
+Early alpha development for the "main" Riff.CC Front Page.
+
+"Pioneer"
 
 ## Project setup
 ```
@@ -19,3 +21,8 @@ npm run build
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+Credits:
+- Sphirye Organizm (frontend work)
+- Benjamin Arntzen (sec advisory/steering)
+- Riff.CC Foundation (nonprofit)
