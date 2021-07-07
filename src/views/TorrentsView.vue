@@ -9,8 +9,10 @@
                     </div>
                 </v-col>
             </v-row>
+
             <v-divider dark/>
-            <perfect-scrollbar v-if="categoryExists" @ps-y-reach-end="updateList" @ps-scroll-down="showHeader(false)" @ps-scroll-up="showHeader(true)" ref="scrollbar">
+
+            <perfect-scrollbar :style="{ 'height': `${$vuetify.breakpoint.height}px` }" v-if="categoryExists" @ps-y-reach-end="updateList" @ps-scroll-down="showHeader(false)" @ps-scroll-up="showHeader(true)" ref="scrollbar">
                 <TorrentListComponent :torrents="torrents"/>
             </perfect-scrollbar>
         </v-container>
@@ -103,10 +105,6 @@ export default class TorrentsView extends Vue {
 </script>
 
 <style>
-.ps {
-    height: 800px;
-}
-
 .header{
     transition-delay: 0s;
     transition-duration: 0.5s;

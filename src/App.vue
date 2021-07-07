@@ -1,8 +1,8 @@
 <template>
   <v-app>
-    <SidebarComponent v-if="showSidebar"/>
+    <NavigationDrawerComponent v-if="showSidebar"/>
     <v-main class="grey darken-4">
-        <AppBarComponent/>
+        <AppBarComponent v-if="$vuetify.breakpoint.width < 500"/>
         <router-view style="transition-duration: 0.5s;"/>
     </v-main>
   </v-app>
@@ -10,13 +10,13 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator"
-import SidebarComponent from "@/components/SidebarComponent.vue"
+import NavigationDrawerComponent from "@/components/NavigationDrawerComponent.vue"
 import AppBarComponent from "@/components/AppBarComponent.vue"
 import UserInterface from "@/store/UserInterface"
 import { getModule } from "vuex-module-decorators"
 
 @Component({
-  components: { SidebarComponent, AppBarComponent }
+  components: { NavigationDrawerComponent, AppBarComponent }
 })
 
 export default class App extends Vue {

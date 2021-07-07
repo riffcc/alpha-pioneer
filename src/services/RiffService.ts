@@ -5,7 +5,7 @@ import Vue from "vue"
 import ConstantTool from "./tools/ConstantTool"
 import JsonTool from "./tools/JsonTool"
 
-export default class CoindeskService {
+export default class RiffService {
     
     static async getTorrents(component: Vue, torrents: Torrent[]) {
 
@@ -85,7 +85,6 @@ export default class CoindeskService {
     }
 
     static async getFeaturedTorrents(component: Vue, URL: string, torrents: Torrent[]) {
-
         //@ts-ignore
         component.loading = true
 
@@ -93,19 +92,15 @@ export default class CoindeskService {
             const mainJsonResponse = await component.axios.get(URL)
             let list = mainJsonResponse.data.featured
             torrents.splice(0, torrents.length)
-
             for (let id of list) {
                 const response = await component.axios.get(`https://u.riff.cc/api/torrents/${id}/`, {
                     params: { api_token: ConstantTool.RIFF_API_TOKEN }
                 })
-                console.log(response.data)
                 const convertedResponse = JsonTool.jsonConvert.deserializeObject(response.data, Torrent)
                 torrents.push(convertedResponse)
             }
-
             //@ts-ignore
             component.loading = false
-
         } catch (err) {
             console.log(err)
             //@ts-ignore

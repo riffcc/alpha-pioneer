@@ -1,25 +1,8 @@
 <template>
-    <v-row no-gutters>
-        <v-col v-for="(torrent, key) in torrents" :key="key" md="2" xl="2">
-            <div class="ma-1 d-flex justify-center flex-column">
-
-                <v-img v-if="getCoverURL(torrent) != null" width="100%" height="200px" :src="getCoverURL(torrent)" class="grey darken-3"></v-img>
-
-                <v-sheet elevation="0" width="100%" height="200px" v-else class="grey darken-3 d-flex justify-center">
-                    <v-icon size="100px">{{getIconByCategory(torrent.attributes.category)}}</v-icon>
-                </v-sheet>
-
-                <div class="d-flex justify-center text-center pa-2 body-1 title white--text">
-                    <span v-line-clamp:5="2">{{torrent.attributes.name}}</span>
-                </div>
-
-            </div>
+    <v-row no-gutters class="my-2">
+        <v-col v-for="(torrent, key) in torrents" :key="key" class="d-flex justify-center">
+            <CardComponent :torrent="torrent"/>
         </v-col>
-
-        <v-col cols="12" md="2" xl="2" class="ma-1 d-flex flex-column-reverse">
-            <v-skeleton-loader dark class="ma-1" width="200px" type="list-item-two-line" tile></v-skeleton-loader>
-        </v-col>
-
     </v-row>
 </template>
 
@@ -29,11 +12,12 @@
 import { Component, Vue, Prop } from "vue-property-decorator"
 import RiffService from '@/services/RiffService'
 import Torrent from "@/models/Torrent"
-import CategoriesModule from "@/store/CategoriesModule";
-import {getModule} from "vuex-module-decorators"
+import CategoriesModule from "@/store/CategoriesModule"
+import CardComponent from "@/components/CardComponent.vue"
+import { getModule } from "vuex-module-decorators"
 
 @Component({
-    components: { }
+    components: { CardComponent }
 })
 
 export default class TorrentListComponent extends Vue {

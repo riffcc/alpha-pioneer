@@ -1,5 +1,15 @@
 <template>
-    <div class="ma-1">
+    <div class="full-width">
+        <v-container fluid>
+            <perfect-scrollbar :style="{ 'height': `${$vuetify.breakpoint.height}px` }">
+                <v-row no-gutters>
+                        <v-col v-for="(torrent, key) in 20" :key="key" class="d-flex justify-center">
+                            <CardComponent class="ma-1" :torrent="{ attributes: { name: torrent } }"/>
+                        </v-col>
+                </v-row>
+            </perfect-scrollbar>
+        </v-container>
+
 
         <v-card flat width="300px" class="ma-1">
 
@@ -57,11 +67,15 @@ import UserInterface from "@/store/UserInterface"
 import { Component, Vue, Watch } from "vue-property-decorator"
 import { getModule } from "vuex-module-decorators"
 
+import CardComponent from "@/components/CardComponent.vue"
+
 @Component({
-    components: {  }
+    components: { CardComponent }
 })
 
 export default class TestView extends Vue {
+
+    getHeight = this.$vuetify.breakpoint.height
 
     userInterface: UserInterface = getModule(UserInterface)
 
@@ -74,4 +88,7 @@ export default class TestView extends Vue {
 </script>
 
 <style>
+/*.ps {
+    height: 800px;
+}*/
 </style>

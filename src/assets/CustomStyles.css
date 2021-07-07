@@ -18,7 +18,11 @@
     height: 100%;
 }
 
-.neon-button-icon:hover{
+.pointer {
+    cursor: pointer;
+}
+
+.neon:hover{
     filter: drop-shadow( 0px 0px 5px rgb(255, 255, 255));
     transition-duration: 0.2s;
 }
@@ -31,13 +35,9 @@
 
 /* Vue-Perfect-Scrollbar */
 
-.ps {
-    height: 330px;
-}
-
 .ps__rail-x {
     display: none !important;
-    opacity: 1 !important;
+    opacity: 0 !important;
 }
 
 

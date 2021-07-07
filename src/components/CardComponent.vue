@@ -1,11 +1,11 @@
 <template>
-  <v-card class="transparent ma-0 pa-0"  width="250px" flat tile>
+  <v-card class="transparent pointer" :width="getSizeByScreen()" :max-width="getSizeByScreen()" flat tile>
 
-    <v-img :src="getCoverURL(torrent)" width="250px" max-width="250px" height="250px" max-height="250px" class="grey darken-3 pa-2">
+    <v-img :src="getCoverURL(torrent)" :width="getSizeByScreen()" :max-width="getSizeByScreen()" :height="getSizeByScreen()" :max-height="getSizeByScreen()" class="grey darken-3 pa-2 d-flex align-center text-center">
         <v-icon v-if="getCoverURL(torrent) == null" size="100px">{{getIconByCategory(torrent.attributes.category)}}</v-icon>
     </v-img>
 
-    <v-card-subtitle class="body-1 text-center white--text">
+    <v-card-subtitle class="body-1 text-center white--text neon">
         {{torrent.attributes.name}}
     </v-card-subtitle>
 
@@ -20,7 +20,7 @@ import { Component, Prop, Vue, Watch } from "vue-property-decorator"
 @Component({ components: {  } })
 
 export default class CardComponent extends Vue {
-    
+
     @Prop() readonly torrent!: Torrent
 
     getCoverURL(torrent: Torrent) {
@@ -39,6 +39,20 @@ export default class CardComponent extends Vue {
             case "Application": return "mdi-apps"
             default: return null
         }
+    }
+
+    getSizeByScreen() {
+        let size: string = "250px"
+
+        switch (this.$vuetify.breakpoint.name) {
+            case("xs"): { size = "90px" } break
+            case("sm"): { size = "180px" } break
+            case("md"): { size = "250px" } break
+            case("lg"): { size = "300px" } break
+            case("xl"): { size = "380px" } break
+        }
+
+        return size
     }
 
 }
