@@ -1,9 +1,9 @@
 <template>
   <v-app>
     <NavigationDrawerComponent v-if="showSidebar"/>
+    <!--AppBarComponent v-if="$vuetify.breakpoint.width < 500"/-->
     <v-main class="grey darken-4">
-        <AppBarComponent v-if="$vuetify.breakpoint.width < 500"/>
-        <router-view style="transition-duration: 0.5s;"/>
+        <router-view/>
     </v-main>
   </v-app>
 </template>

@@ -1,22 +1,20 @@
 <template>
-    <div>
-        <v-container fluid class="pa-0">
-            <v-row no-gutters>
-                <v-col cols="12" id="header" class="header">
-                    <div class="white--text font-inter-black mx-5">
-                        {{ categoryTitle }}  
-                        <v-icon v-if="loading" class="mx-2 mdi-spin white--text" size="32">mdi-loading</v-icon>
-                    </div>
-                </v-col>
-            </v-row>
-
-            <v-divider dark/>
-
-            <perfect-scrollbar :style="{ 'height': `${$vuetify.breakpoint.height}px` }" v-if="categoryExists" @ps-y-reach-end="updateList" @ps-scroll-down="showHeader(false)" @ps-scroll-up="showHeader(true)" ref="scrollbar">
+    <v-container fluid class="pa-0">
+        <v-row no-gutters>
+            <v-col cols="12" id="header" class="header">
+                <div class="white--text font-inter-black mx-5">
+                    {{ categoryTitle }}  
+                    <v-icon v-if="loading" class="mx-2 mdi-spin white--text" size="32">mdi-loading</v-icon>
+                </div>
+            </v-col>
+        </v-row>
+        <v-divider dark/>
+        <v-row no-gutters>
+            <perfect-scrollbar v-if="categoryExists" :style="{ 'height': `${$vuetify.breakpoint.height}px` }" @ps-y-reach-end="updateList" @ps-scroll-down="showHeader(false)" @ps-scroll-up="showHeader(true)" ref="scrollbar" class="info">
                 <TorrentListComponent :torrents="torrents"/>
             </perfect-scrollbar>
-        </v-container>
-    </div>
+        </v-row>
+    </v-container>
 </template>
 
 <script lang="ts">
@@ -59,7 +57,7 @@ export default class TorrentsView extends Vue {
 
     updateList() {
         if (!this.loading) {
-            RiffService.getTorrentPage(this, this.page, this.torrents)
+            //RiffService.getTorrentPage(this, this.page, this.torrents)
         }
     }
 

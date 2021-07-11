@@ -45,7 +45,7 @@ export default class CardComponent extends Vue {
         let size: string = "250px"
 
         switch (this.$vuetify.breakpoint.name) {
-            case("xs"): { size = "90px" } break
+            case("xs"): { size = "180px" } break
             case("sm"): { size = "180px" } break
             case("md"): { size = "250px" } break
             case("lg"): { size = "300px" } break

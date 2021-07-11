@@ -1,6 +1,6 @@
 <template>
     <v-row no-gutters class="my-2">
-        <v-col v-for="(torrent, key) in torrents" :key="key" class="d-flex justify-center">
+        <v-col v-for="(torrent, key) in torrents" :key="key" :cols="getColsByScreen()" class="d-flex justify-center">
             <CardComponent :torrent="torrent"/>
         </v-col>
     </v-row>
@@ -45,6 +45,18 @@ export default class TorrentListComponent extends Vue {
             case "Application": return "mdi-apps"
             default: return null
         }
+    }
+
+    getColsByScreen() {
+        let cols = 6
+        switch (this.$vuetify.breakpoint.name) {
+            case("xs"): { cols = 6 } break
+            case("sm"): { cols = 4 } break
+            case("md"): { cols = 3 } break
+            case("lg"): { cols = 2 } break
+            case("xl"): { cols = 2 } break
+        }
+        return cols
     }
 
 }
