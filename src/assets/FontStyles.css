@@ -1,0 +1,73 @@
+@font-face {
+    font-family: "Inter-Black";
+    src: url('../assets/fonts/Inter-Black.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-ExtraBold";
+    src: url('../assets/fonts/Inter-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Bold";
+    src: url('../assets/fonts/Inter-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-SemiBold";
+    src: url('../assets/fonts/Inter-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Regular";
+    src: url('../assets/fonts/Inter-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Medium";
+    src: url('../assets/fonts/Inter-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Inter-Light-BETA";
+    src: url('../assets/fonts/Inter-Light-BETA.ttf') format('truetype');
+}
+
+
+@font-face {
+    font-family: "Inter-ExtraLight-BETA";
+    src: url('../assets/fonts/Inter-ExtraLight-BETA.ttf') format('truetype');
+}
+
+
+.inter-weight-black {
+    font-family: "Inter-Black";
+}
+
+.inter-weight-extrabold {
+    font-family: "Inter-ExtraBold";
+}
+
+.inter-weight-bold {
+    font-family: "Inter-Bold";
+}
+
+.inter-weight-semibold {
+    font-family: "Inter-SemiBold";
+}
+
+.inter-weight-regular {
+    font-family: "Inter-Regular";
+}
+
+.inter-weight-medium {
+    font-family: "Inter-Medium";
+}
+
+.inter-weight-light {
+    font-family: "Inter-Light-BETA";
+}
+
+.inter-weight-extralight {
+    font-family: "Inter-ExtraLight-BETA";
+}

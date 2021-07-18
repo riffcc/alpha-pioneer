@@ -3,14 +3,14 @@
         <v-row no-gutters>
             <v-col cols="12">
                 <router-link class="text-decoration-none" :to="`torrents/${route}`">
-                    <span :class="`font-inter-black white--text neon`">
+                    <span :class="`inter-weight-black ${textSize} white--text neon`">
                         {{title}}
                     </span>
                 </router-link>
             </v-col>
         </v-row>
 
-        <v-row no-gutter>
+        <v-row no-gutters>
             <perfect-scrollbar class="d-flex flex-nowrap">
                 <CardComponent v-for="(torrent, key) in torrents" :key="key" :torrent="torrent" class="mx-1"/>
                 <div v-if="loading" class="d-flex flex-column-reverse slider-item mx-1">
@@ -31,6 +31,7 @@ import RiffService from '@/services/RiffService'
 import { PerfectScrollbar } from 'vue2-perfect-scrollbar'
 import CardComponent from "@/components/CardComponent.vue"
 import ResponsiveService from "@/services/ResponsiveService"
+import ResponsiveTool from "@/services/tools/ResponsiveTool"
 
 @Component({
     components: { PerfectScrollbar, CardComponent }
@@ -43,9 +44,7 @@ export default class TorrentListComponent extends Vue {
     @Prop() readonly title!: string
     @Prop() readonly route!: string
 
-    get titleSize(): string { return ResponsiveService.titleSize(this) }
-	get subtitleSize(): string { return ResponsiveService.subtitleSize(this) }
-	get normalSize(): string { return ResponsiveService.normalSize(this) }
+   	get textSize(): string { return ResponsiveTool.textSize(this) }
 
     getCoverURL(torrent: Torrent) {
         return RiffService.getCoverURL(torrent)

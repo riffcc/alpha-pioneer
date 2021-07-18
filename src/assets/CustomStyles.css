@@ -1,9 +1,3 @@
-/* Global Styles */
-@font-face {
-    font-family: "Inter-Black";
-    src: url('../assets/fonts/Inter-Black.ttf') format('truetype');
-}
-  
 .font-inter-black {
     font-family: "Inter-Black";
     font-size: 40px;
