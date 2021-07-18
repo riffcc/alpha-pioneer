@@ -3,7 +3,7 @@
         <v-row no-gutters>
             <v-col cols="12">
                 <router-link class="text-decoration-none" :to="`torrents/${route}`">
-                    <span class="font-inter-black white--text neon">
+                    <span :class="`font-inter-black white--text neon`">
                         {{title}}
                     </span>
                 </router-link>
@@ -30,6 +30,7 @@ import Torrent from "@/models/Torrent"
 import RiffService from '@/services/RiffService'
 import { PerfectScrollbar } from 'vue2-perfect-scrollbar'
 import CardComponent from "@/components/CardComponent.vue"
+import ResponsiveService from "@/services/ResponsiveService"
 
 @Component({
     components: { PerfectScrollbar, CardComponent }
@@ -41,6 +42,10 @@ export default class TorrentListComponent extends Vue {
     @Prop() readonly loading!: boolean
     @Prop() readonly title!: string
     @Prop() readonly route!: string
+
+    get titleSize(): string { return ResponsiveService.titleSize(this) }
+	get subtitleSize(): string { return ResponsiveService.subtitleSize(this) }
+	get normalSize(): string { return ResponsiveService.normalSize(this) }
 
     getCoverURL(torrent: Torrent) {
         return RiffService.getCoverURL(torrent)

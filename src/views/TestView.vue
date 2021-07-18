@@ -1,17 +1,23 @@
 <template>
-    <div class="full-width">
-        <v-container fluid>
-            <perfect-scrollbar :style="{ 'height': `${$vuetify.breakpoint.height}px` }">
-                <v-row no-gutters>
-                        <v-col v-for="(torrent, key) in 20" :key="key" class="d-flex justify-center">
-                            <CardComponent class="ma-1" :torrent="{ attributes: { name: torrent } }"/>
-                        </v-col>
-                </v-row>
-            </perfect-scrollbar>
-        </v-container>
+  <div class="full-width">
+
+		<span :class="`white--text ${titleSize}`">TITLE</span> <br>
+		<span :class="`white--text ${subtitleSize}`">Subtitle</span> <br>
+		<span :class="`white--text ${normalSize}`">Normal</span> <br>
 
 
-        <v-card flat width="300px" class="ma-1">
+    <v-container fluid>
+      <perfect-scrollbar :style="{ 'height': `${$vuetify.breakpoint.height}px` }">
+        <v-row no-gutters>
+          <v-col v-for="(torrent, key) in 20" :key="key" class="d-flex justify-center">
+              <CardComponent class="ma-1" :torrent="{ attributes: { name: torrent } }"/>
+          </v-col>
+        </v-row>
+      </perfect-scrollbar>
+    </v-container>
+
+
+    <v-card flat width="300px" class="ma-1">
 
             <v-card-title>
                 User Interface
@@ -31,9 +37,9 @@
                     </v-btn>
                 </v-list-item>
             </v-list>
-        </v-card>
+    </v-card>
 
-        <v-card flat width="300px" class="ma-1">
+    <v-card flat width="300px" class="ma-1">
 
             <v-card-title>
                 Feature Tests
@@ -56,9 +62,8 @@
                     </router-link>
                 </v-list-item>
             </v-list>
-        </v-card>
-
-    </div>
+    </v-card>
+  </div>
 </template>
 
 <script lang="ts">
@@ -66,6 +71,7 @@
 import UserInterface from "@/store/UserInterface"
 import { Component, Vue, Watch } from "vue-property-decorator"
 import { getModule } from "vuex-module-decorators"
+import ResponsiveService from "@/services/ResponsiveService";
 
 import CardComponent from "@/components/CardComponent.vue"
 
@@ -78,6 +84,11 @@ export default class TestView extends Vue {
     getHeight = this.$vuetify.breakpoint.height
 
     userInterface: UserInterface = getModule(UserInterface)
+
+		get titleSize(): string { return ResponsiveService.titleSize(this) }
+		get subtitleSize(): string { return ResponsiveService.subtitleSize(this) }
+		get normalSize(): string { return ResponsiveService.normalSize(this) }
+
 
     toggleSidebar(v: boolean) {
         this.userInterface.showSidebar(v);
