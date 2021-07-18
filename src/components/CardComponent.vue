@@ -5,7 +5,7 @@
         <v-icon v-if="getCoverURL(torrent) == null" size="100px">{{getIconByCategory(torrent.attributes.category)}}</v-icon>
     </v-img>
 
-    <v-card-subtitle class="body-1 text-center white--text neon">
+    <v-card-subtitle :class="`inter-weight-medium ${subtitleTextSize} text-center white--text neon`">
         {{torrent.attributes.name}}
     </v-card-subtitle>
 
@@ -15,46 +15,42 @@
 <script lang="ts">
 import Torrent from "@/models/Torrent"
 import RiffService from "@/services/RiffService"
+import ResponsiveTool from "@/services/tools/ResponsiveTool"
 import { Component, Prop, Vue, Watch } from "vue-property-decorator"
 
-@Component({ components: {  } })
+@Component
 
 export default class CardComponent extends Vue {
 
-    @Prop() readonly torrent!: Torrent
+	@Prop() readonly torrent!: Torrent
+	
+	getCoverURL(torrent: Torrent) { return RiffService.getCoverURL(torrent) }
 
-    getCoverURL(torrent: Torrent) {
-        return RiffService.getCoverURL(torrent)
+	get subtitleTextSize(): string { return ResponsiveTool.subtitleTextSize(this) }
+	
+  getIconByCategory(actualCategory: string) {
+    switch(actualCategory) {
+      case "Music": return "mdi-music"
+      case "Audiobooks": return "mdi-file-music-outline"
+      case "Podcasts": return "mdi-microphone"
+      case "Books": return "mdi-book-outline"
+      case "Movies": return "mdi-movie-outline"
+      case "Games": return "mdi-gamepad-variant-outline"
+      case "Scientific": return "mdi-test-tube"
+      case "Application": return "mdi-apps"
+      default: return null
     }
-
-    getIconByCategory(actualCategory: string) {
-        switch(actualCategory) {
-            case "Music": return "mdi-music"
-            case "Audiobooks": return "mdi-file-music-outline"
-            case "Podcasts": return "mdi-microphone"
-            case "Books": return "mdi-book-outline"
-            case "Movies": return "mdi-movie-outline"
-            case "Games": return "mdi-gamepad-variant-outline"
-            case "Scientific": return "mdi-test-tube"
-            case "Application": return "mdi-apps"
-            default: return null
-        }
+	}
+	
+  getSizeByScreen() {
+    switch (this.$vuetify.breakpoint.name) {
+      case("xs"): return "180px"
+      case("sm"): return "180px"
+      case("md"): return "250px"
+      case("lg"): return "300px"
+      case("xl"): return "380px"
     }
-
-    getSizeByScreen() {
-        let size: string = "250px"
-
-        switch (this.$vuetify.breakpoint.name) {
-            case("xs"): { size = "180px" } break
-            case("sm"): { size = "180px" } break
-            case("md"): { size = "250px" } break
-            case("lg"): { size = "300px" } break
-            case("xl"): { size = "380px" } break
-        }
-
-        return size
-    }
-
+  }
 }
 </script>
 
