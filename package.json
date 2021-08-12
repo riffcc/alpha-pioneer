@@ -9,6 +9,7 @@
   "dependencies": {
     "@mdi/font": "5.9.55",
     "axios": "^0.21.1",
+    "hls.js": "^1.0.9",
     "json2typescript": "^1.4.1",
     "perfect-scrollbar": "^1.5.0",
     "roboto-fontface": "*",

@@ -5,7 +5,7 @@
         <v-icon v-if="getCoverURL(torrent) == null" size="100px">{{getIconByCategory(torrent.attributes.category)}}</v-icon>
     </v-img>
 
-    <v-card-subtitle :class="`inter-weight-medium ${subtitleTextSize} text-center white--text neon`">
+    <v-card-subtitle @click="log(torrent)" :class="`inter-weight-medium ${subtitleTextSize} text-center white--text neon`">
         {{torrent.attributes.name}}
     </v-card-subtitle>
 
@@ -50,6 +50,10 @@ export default class CardComponent extends Vue {
       case("lg"): return "300px"
       case("xl"): return "380px"
     }
+  }
+
+  log(v: any) {
+    console.log(v)
   }
 }
 </script>
