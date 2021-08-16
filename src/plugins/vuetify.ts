@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css';
 import es from 'vuetify/src/locale/es';
+import '@fortawesome/fontawesome-free/css/all.css'
 
 import Star from '../assets/icons/Star.vue'
 import Search from '../assets/icons/Search.vue'
@@ -39,6 +40,7 @@ export default new Vuetify({
       current: 'es',
   },
   icons: {
+    iconfont: 'fa',
     values: {
       star: { component: Star },
       music: { component: Music },

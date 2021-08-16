@@ -27,6 +27,7 @@
     "vuex-module-decorators": "^1.0.1"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.4",
     "@types/jquery": "^3.5.5",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.0",
